@@ -1,0 +1,5 @@
+{
+    "sourcesPath": "./contracts",
+    "targetPath": "../contract-artifacts/contracts",
+    "npmPath": "./node_modules"
+}

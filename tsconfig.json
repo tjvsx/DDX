@@ -1,0 +1,16 @@
+{
+    "extends": "../../tsconfig-base",
+    "compilerOptions": {
+        "outDir": "lib",
+        "types": ["mocha", "chai"]
+    },
+    "include": ["scripts/**/*", "deployment/**/*", "test/**/*"],
+    "references": [
+        { "path": "../artifacts-gen" },
+        { "path": "../contract-addresses" },
+        { "path": "../contract-wrappers" },
+        { "path": "../docs-gen" },
+        { "path": "../test-utils" },
+        { "path": "../types" }
+    ]
+}

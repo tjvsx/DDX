@@ -1,0 +1,14 @@
+{
+    "plugins": ["prettier"],
+    "extends": "solhint:default",
+    "rules": {
+        "avoid-low-level-calls": "off",
+        "avoid-tx-origin": "warn",
+        "code-complexity": "off",
+        "const-name-snakecase": "error",
+        "function-max-lines": "off",
+        "ordering": "error",
+        "no-inline-assembly": "off",
+        "prettier/prettier": "error"
+    }
+}
