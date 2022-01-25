@@ -1,0 +1,3060 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/thomasvanslooten/Projects/DDX/contracts/DerivaDEX.sol": {
+      "lastModificationDate": 1643069138760,
+      "contentHash": "d89205d683b5ecf0114972fc433fe208",
+      "sourceName": "contracts/DerivaDEX.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./diamond/LibDiamondCut.sol",
+        "./diamond/DiamondFacet.sol",
+        "./diamond/OwnershipFacet.sol",
+        "./diamond/LibDiamondStorage.sol",
+        "./diamond/IDiamondCut.sol",
+        "./diamond/IDiamondLoupe.sol",
+        "./diamond/IERC165.sol",
+        "./storage/LibDiamondStorageDerivaDEX.sol",
+        "./tokens/interfaces/IDDX.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DerivaDEX"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/LibDiamondCut.sol": {
+      "lastModificationDate": 1643069138678,
+      "contentHash": "a0efff826c20f2524447caacb1df1d0f",
+      "sourceName": "contracts/diamond/LibDiamondCut.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./LibDiamondStorage.sol",
+        "./IDiamondCut.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondCut"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/DiamondFacet.sol": {
+      "lastModificationDate": 1643069138676,
+      "contentHash": "6b2876c4cccffe0c74a6da5a7dbc870f",
+      "sourceName": "contracts/diamond/DiamondFacet.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./LibDiamondStorage.sol",
+        "./LibDiamondCut.sol",
+        "../storage/LibDiamondStorageDerivaDEX.sol",
+        "./IDiamondCut.sol",
+        "./IDiamondLoupe.sol",
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DiamondFacet"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/OwnershipFacet.sol": {
+      "lastModificationDate": 1643069138673,
+      "contentHash": "dc64ff7a020607d493a1df88ac18c52b",
+      "sourceName": "contracts/diamond/OwnershipFacet.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../storage/LibDiamondStorageDerivaDEX.sol",
+        "../diamond/LibDiamondStorage.sol",
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "OwnershipFacet"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/LibDiamondStorage.sol": {
+      "lastModificationDate": 1643069138684,
+      "contentHash": "66a1ad4099e0ddcc8c96d622b0ab8b6e",
+      "sourceName": "contracts/diamond/LibDiamondStorage.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondStorage"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/IDiamondCut.sol": {
+      "lastModificationDate": 1643069138675,
+      "contentHash": "49297558f4cd74703ee89f9531cd9235",
+      "sourceName": "contracts/diamond/IDiamondCut.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IDiamondCut"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/IDiamondLoupe.sol": {
+      "lastModificationDate": 1643069138680,
+      "contentHash": "423fb7534f4809fb86d49607cb266773",
+      "sourceName": "contracts/diamond/IDiamondLoupe.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IDiamondCut.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IDiamondLoupe"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/diamond/IERC165.sol": {
+      "lastModificationDate": 1643069138682,
+      "contentHash": "b866ea54bcffeabb9946f2f5ed0abf2b",
+      "sourceName": "contracts/diamond/IERC165.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/storage/LibDiamondStorageDerivaDEX.sol": {
+      "lastModificationDate": 1643069138720,
+      "contentHash": "1532512c833d5305ce72e4e294139962",
+      "sourceName": "contracts/storage/LibDiamondStorageDerivaDEX.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tokens/interfaces/IDDX.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondStorageDerivaDEX"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/interfaces/IDDX.sol": {
+      "lastModificationDate": 1643069138792,
+      "contentHash": "9c1ab5a62e0f7cffe52ee76d587f93ed",
+      "sourceName": "contracts/tokens/interfaces/IDDX.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IDDX"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/DDXWalletCloneable.sol": {
+      "lastModificationDate": 1643069138781,
+      "contentHash": "76d47cb51eccb52adbd0a2eda993138a",
+      "sourceName": "contracts/tokens/DDXWalletCloneable.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IDDX.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DDXWalletCloneable"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/trader/Trader.sol": {
+      "lastModificationDate": 1643069138692,
+      "contentHash": "c5edcff0881aaa2e257faa68861f85f5",
+      "sourceName": "contracts/facets/trader/Trader.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol",
+        "../../libs/SafeMath96.sol",
+        "../../libs/defs/TraderDefs.sol",
+        "../../storage/LibDiamondStorageDerivaDEX.sol",
+        "../../storage/LibDiamondStorageTrader.sol",
+        "../../tokens/DDXWalletCloneable.sol",
+        "../../tokens/interfaces/IDDX.sol",
+        "../../tokens/interfaces/IDDXWalletCloneable.sol",
+        "./LibTraderInternal.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Trader"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol": {
+      "lastModificationDate": 1643069790731,
+      "contentHash": "e03e12206057e809eb76c5f681170c32",
+      "sourceName": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1643069791703,
+      "contentHash": "e0a41531d159d3a32f84b7a3ecf9fabb",
+      "sourceName": "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol": {
+      "lastModificationDate": 1643069791703,
+      "contentHash": "33e22842646d746e5c4124c2fdc051aa",
+      "sourceName": "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "../../math/SafeMath.sol",
+        "../../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/SafeMath96.sol": {
+      "lastModificationDate": 1643069138726,
+      "contentHash": "7ec36d1a6929c160bd1bf40e22c90b5e",
+      "sourceName": "contracts/libs/SafeMath96.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "SafeMath96"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/defs/TraderDefs.sol": {
+      "lastModificationDate": 1643069138752,
+      "contentHash": "4b6de504cb8ccc3ad49d8f905282be24",
+      "sourceName": "contracts/libs/defs/TraderDefs.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "TraderDefs"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/storage/LibDiamondStorageTrader.sol": {
+      "lastModificationDate": 1643069138712,
+      "contentHash": "559e0c1edd39d1c7a1adaad46d6fc53e",
+      "sourceName": "contracts/storage/LibDiamondStorageTrader.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libs/defs/TraderDefs.sol",
+        "../tokens/interfaces/IDDXWalletCloneable.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondStorageTrader"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/interfaces/IDDXWalletCloneable.sol": {
+      "lastModificationDate": 1643069138798,
+      "contentHash": "c7c8cc6c9ad4ae7950b3b3009fd8ee1e",
+      "sourceName": "contracts/tokens/interfaces/IDDXWalletCloneable.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IDDX.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IDDXWalletCloneable"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/trader/LibTraderInternal.sol": {
+      "lastModificationDate": 1643069138694,
+      "contentHash": "bdc32b29866fc3e2f75eabb775c236c5",
+      "sourceName": "contracts/facets/trader/LibTraderInternal.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol",
+        "../../libs/LibClone.sol",
+        "../../libs/SafeMath96.sol",
+        "../../libs/defs/TraderDefs.sol",
+        "../../storage/LibDiamondStorageDerivaDEX.sol",
+        "../../storage/LibDiamondStorageTrader.sol",
+        "../../tokens/interfaces/IDDX.sol",
+        "../../tokens/interfaces/IDDXWalletCloneable.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibTraderInternal"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/utils/Address.sol": {
+      "lastModificationDate": 1643069790732,
+      "contentHash": "7aa46886ff5abe7515496208a5e2ce5a",
+      "sourceName": "openzeppelin-solidity/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.2 <0.8.0"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/LibClone.sol": {
+      "lastModificationDate": 1643069138736,
+      "contentHash": "24b2704bc3a1ca25f327865d75f7f5a5",
+      "sourceName": "contracts/libs/LibClone.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibClone"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/insurance-fund/InsuranceFund.sol": {
+      "lastModificationDate": 1643069138689,
+      "contentHash": "a112d2fe374d7745bb5344c6cc3cd21b",
+      "sourceName": "contracts/facets/insurance-fund/InsuranceFund.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "openzeppelin-solidity/contracts/math/Math.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol",
+        "../../libs/SafeMath32.sol",
+        "../../libs/SafeMath96.sol",
+        "../../libs/MathHelpers.sol",
+        "../../libs/defs/InsuranceFundDefs.sol",
+        "../../storage/LibDiamondStorageDerivaDEX.sol",
+        "../../storage/LibDiamondStorageInsuranceFund.sol",
+        "../../storage/LibDiamondStorageTrader.sol",
+        "../../storage/LibDiamondStoragePause.sol",
+        "../../tokens/interfaces/IDDX.sol",
+        "../trader/LibTraderInternal.sol",
+        "../interfaces/IAToken.sol",
+        "../interfaces/IComptroller.sol",
+        "../interfaces/ICToken.sol",
+        "../../tokens/interfaces/IDIFundToken.sol",
+        "../../tokens/interfaces/IDIFundTokenFactory.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IERCCustom",
+        "InsuranceFund"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/math/Math.sol": {
+      "lastModificationDate": 1643069790731,
+      "contentHash": "e5c844515b04deabacef7eb872abc384",
+      "sourceName": "openzeppelin-solidity/contracts/math/Math.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "Math"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/SafeMath32.sol": {
+      "lastModificationDate": 1643069138746,
+      "contentHash": "67bb9ea734c9e67dff107b89501bce1e",
+      "sourceName": "contracts/libs/SafeMath32.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "SafeMath32"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/MathHelpers.sol": {
+      "lastModificationDate": 1643069138731,
+      "contentHash": "40fe51c36ea57b9c97c5712c38f92acb",
+      "sourceName": "contracts/libs/MathHelpers.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "openzeppelin-solidity/contracts/math/Math.sol",
+        "./SafeMath96.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "MathHelpers"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/defs/InsuranceFundDefs.sol": {
+      "lastModificationDate": 1643069138757,
+      "contentHash": "3c177c16d2d643e0647ee90f81ff06aa",
+      "sourceName": "contracts/libs/defs/InsuranceFundDefs.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../tokens/interfaces/IDIFundToken.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "InsuranceFundDefs"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/storage/LibDiamondStorageInsuranceFund.sol": {
+      "lastModificationDate": 1643069138714,
+      "contentHash": "0d60ae4a962c23575bbef49fd2fd3790",
+      "sourceName": "contracts/storage/LibDiamondStorageInsuranceFund.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libs/defs/InsuranceFundDefs.sol",
+        "../tokens/interfaces/IDIFundTokenFactory.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondStorageInsuranceFund"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/storage/LibDiamondStoragePause.sol": {
+      "lastModificationDate": 1643069138717,
+      "contentHash": "0d02bd01f524c7a7b595ad1de5950796",
+      "sourceName": "contracts/storage/LibDiamondStoragePause.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondStoragePause"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/interfaces/IAToken.sol": {
+      "lastModificationDate": 1643069138707,
+      "contentHash": "7c4847814f17dccc6ad1397e1d8ffc57",
+      "sourceName": "contracts/facets/interfaces/IAToken.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IAToken"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/interfaces/IComptroller.sol": {
+      "lastModificationDate": 1643069138704,
+      "contentHash": "b181938a982d09aaeade3b2067081b8e",
+      "sourceName": "contracts/facets/interfaces/IComptroller.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IComptroller"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/interfaces/ICToken.sol": {
+      "lastModificationDate": 1643069138700,
+      "contentHash": "497532db35bfaeeefd1cb091bea6ad9f",
+      "sourceName": "contracts/facets/interfaces/ICToken.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "ICToken"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/interfaces/IDIFundToken.sol": {
+      "lastModificationDate": 1643069138788,
+      "contentHash": "1a44cdc96eff2fdf381fabc65d7e4e03",
+      "sourceName": "contracts/tokens/interfaces/IDIFundToken.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IDIFundToken"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/interfaces/IDIFundTokenFactory.sol": {
+      "lastModificationDate": 1643069138804,
+      "contentHash": "0fc82dd1228fee0e7ce3f4f9505d2550",
+      "sourceName": "contracts/tokens/interfaces/IDIFundTokenFactory.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../DIFundToken.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IDIFundTokenFactory"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/DIFundToken.sol": {
+      "lastModificationDate": 1643069138768,
+      "contentHash": "001fb3cf737f675910ba38f2a266b7c5",
+      "sourceName": "contracts/tokens/DIFundToken.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "../libs/LibBytes.sol",
+        "../libs/LibEIP712.sol",
+        "../libs/LibPermit.sol",
+        "../libs/SafeMath96.sol",
+        "../facets/interfaces/IInsuranceFund.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DIFundToken"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/LibBytes.sol": {
+      "lastModificationDate": 1643069138748,
+      "contentHash": "32c01e771cbcf066d790b6a39befd633",
+      "sourceName": "contracts/libs/LibBytes.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibBytes"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/LibEIP712.sol": {
+      "lastModificationDate": 1643069138742,
+      "contentHash": "57289abd95197edfc2714fb35f501b9f",
+      "sourceName": "contracts/libs/LibEIP712.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibEIP712"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/LibPermit.sol": {
+      "lastModificationDate": 1643069138738,
+      "contentHash": "0d9b78de78d00c7c597500b6ec1b7fd0",
+      "sourceName": "contracts/libs/LibPermit.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./LibEIP712.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibPermit"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/interfaces/IInsuranceFund.sol": {
+      "lastModificationDate": 1643069138702,
+      "contentHash": "bc986f983fa120ed205d4f7b96e03424",
+      "sourceName": "contracts/facets/interfaces/IInsuranceFund.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IInsuranceFund"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/DIFundTokenFactory.sol": {
+      "lastModificationDate": 1643069138771,
+      "contentHash": "2a5bdce06575dae744b8ab8f22c398bc",
+      "sourceName": "contracts/tokens/DIFundTokenFactory.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "../libs/LibBytes.sol",
+        "../libs/LibEIP712.sol",
+        "../libs/LibPermit.sol",
+        "../libs/SafeMath96.sol",
+        "./DIFundToken.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DIFundTokenFactory"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/DDX.sol": {
+      "lastModificationDate": 1643069138775,
+      "contentHash": "7a57ac97eb70bed7df0fcb67f1f4507a",
+      "sourceName": "contracts/tokens/DDX.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "../libs/LibBytes.sol",
+        "../libs/LibEIP712.sol",
+        "../libs/LibDelegation.sol",
+        "../libs/LibPermit.sol",
+        "../libs/SafeMath96.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DDX"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/LibDelegation.sol": {
+      "lastModificationDate": 1643069138733,
+      "contentHash": "bc90974eff3a97ff791a94e3665eda21",
+      "sourceName": "contracts/libs/LibDelegation.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./LibEIP712.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDelegation"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/LibVoteCast.sol": {
+      "lastModificationDate": 1643069138729,
+      "contentHash": "4b5c5bdbf6d6c918ca508175bc1e6b90",
+      "sourceName": "contracts/libs/LibVoteCast.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./LibEIP712.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibVoteCast"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/governance/Governance.sol": {
+      "lastModificationDate": 1643069138697,
+      "contentHash": "4d717732d72d503320231fc500f6a1bc",
+      "sourceName": "contracts/facets/governance/Governance.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "../../libs/defs/GovernanceDefs.sol",
+        "../../libs/LibEIP712.sol",
+        "../../libs/LibVoteCast.sol",
+        "../../libs/LibBytes.sol",
+        "../../libs/SafeMath32.sol",
+        "../../libs/SafeMath96.sol",
+        "../../libs/SafeMath128.sol",
+        "../../libs/MathHelpers.sol",
+        "../../storage/LibDiamondStorageDerivaDEX.sol",
+        "../../storage/LibDiamondStorageGovernance.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Governance"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/defs/GovernanceDefs.sol": {
+      "lastModificationDate": 1643069138754,
+      "contentHash": "8de8e301f2e50ddc8fb713dfb98b5950",
+      "sourceName": "contracts/libs/defs/GovernanceDefs.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "GovernanceDefs"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/libs/SafeMath128.sol": {
+      "lastModificationDate": 1643069138740,
+      "contentHash": "7134942f079b8672861dbcd9906a11bc",
+      "sourceName": "contracts/libs/SafeMath128.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "SafeMath128"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/storage/LibDiamondStorageGovernance.sol": {
+      "lastModificationDate": 1643069138723,
+      "contentHash": "bc30eb0269066d7741821c99b3e9bd1b",
+      "sourceName": "contracts/storage/LibDiamondStorageGovernance.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libs/defs/GovernanceDefs.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "LibDiamondStorageGovernance"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/facets/pause/Pause.sol": {
+      "lastModificationDate": 1643069138687,
+      "contentHash": "678efff499085797ca1a50dbbdc2ee8d",
+      "sourceName": "contracts/facets/pause/Pause.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../storage/LibDiamondStorageDerivaDEX.sol",
+        "../../storage/LibDiamondStoragePause.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Pause"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/HDUMToken.sol": {
+      "lastModificationDate": 1643069138766,
+      "contentHash": "9dac0d50b021689be0e2efff3b5e930a",
+      "sourceName": "contracts/tokens/HDUMToken.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "openzeppelin-solidity/contracts/access/Ownable.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Blacklist",
+        "BlacklistAdminRole",
+        "CoinFactory",
+        "CoinFactoryAdminRole",
+        "ERC20",
+        "ERC20Pausable",
+        "HDUMToken",
+        "Pausable",
+        "PauserRole",
+        "Roles"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1643069790731,
+      "contentHash": "6748815a5b45c4aeeda56819f41190e0",
+      "sourceName": "openzeppelin-solidity/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/utils/Context.sol": {
+      "lastModificationDate": 1643069790732,
+      "contentHash": "2adbd82f6d055a4751566d4671512b03",
+      "sourceName": "openzeppelin-solidity/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/SafeERC20Wrapper.sol": {
+      "lastModificationDate": 1643069138784,
+      "contentHash": "26ffca696cd4bcbdaaf44f6b7e019d17",
+      "sourceName": "contracts/tokens/SafeERC20Wrapper.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/GSN/Context.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol",
+        "openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "SafeERC20Wrapper"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/GSN/Context.sol": {
+      "lastModificationDate": 1643069790731,
+      "contentHash": "a02aa4ae53018d92603a3ead2c365958",
+      "sourceName": "openzeppelin-solidity/contracts/GSN/Context.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": []
+    },
+    "/Users/thomasvanslooten/Projects/DDX/node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1643069791703,
+      "contentHash": "8065b340476f61365c076897199425f1",
+      "sourceName": "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/Context.sol",
+        "./IERC20.sol",
+        "../../math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/tokens/DummyToken.sol": {
+      "lastModificationDate": 1643069138763,
+      "contentHash": "1f35c1c994017adcc9ccbc7690d96bd7",
+      "sourceName": "contracts/tokens/DummyToken.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "DummyToken"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/gnosis/ICreateCall.sol": {
+      "lastModificationDate": 1643069138814,
+      "contentHash": "1b60efaca395be99ae20b2cf8e8ae1b2",
+      "sourceName": "contracts/gnosis/ICreateCall.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "ICreateCall"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/gnosis/IGnosisSafe.sol": {
+      "lastModificationDate": 1643069138808,
+      "contentHash": "7d08c53ea1fee4e142db07bf5d556235",
+      "sourceName": "contracts/gnosis/IGnosisSafe.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IGnosisSafe"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/gnosis/IGnosisSafeProxyFactory.sol": {
+      "lastModificationDate": 1643069138812,
+      "contentHash": "6efa02056195554a23db67c38d2d1e32",
+      "sourceName": "contracts/gnosis/IGnosisSafeProxyFactory.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "IGnosisSafeProxyFactory",
+        "IProxyCreationCallback"
+      ]
+    },
+    "/Users/thomasvanslooten/Projects/DDX/contracts/Migrations.sol": {
+      "lastModificationDate": 1643069138710,
+      "contentHash": "24ec8e98bfed400328123121ebef69c9",
+      "sourceName": "contracts/Migrations.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "evmVersion": "istanbul",
+          "optimizer": {
+            "enabled": true,
+            "runs": 50000,
+            "details": {
+              "yul": false,
+              "deduplicate": true,
+              "cse": true,
+              "constantOptimizer": true
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "devdoc",
+                "evm.bytecode.linkReferences",
+                "evm.bytecode.object",
+                "evm.bytecode.sourceMap",
+                "evm.deployedBytecode.object",
+                "evm.deployedBytecode.sourceMap",
+                "evm.gasEstimates",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Migrations"
+      ]
+    }
+  }
+}

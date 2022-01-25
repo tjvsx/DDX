@@ -1,0 +1,30 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "LibTraderInternal",
+  "sourceName": "contracts/facets/trader/LibTraderInternal.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "trader",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint96",
+          "name": "amount",
+          "type": "uint96"
+        }
+      ],
+      "name": "DDXRewardIssued",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c61b9f250e6574814bd056438d79388646c8df16d029ab58edce177293eef51764736f6c634300060c0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c61b9f250e6574814bd056438d79388646c8df16d029ab58edce177293eef51764736f6c634300060c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

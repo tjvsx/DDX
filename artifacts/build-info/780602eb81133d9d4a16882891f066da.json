@@ -1,0 +1,1273 @@
+{
+  "id": "780602eb81133d9d4a16882891f066da",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.6.12",
+  "solcLongVersion": "0.6.12+commit.27d51765",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/gnosis/IGnosisSafeProxyFactory.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.6.12;\n\n/// @title Proxy Factory - Allows to create new proxy contact and execute a message call to the new proxy within one\n///        transaction.\n/// @author Stefan George - <stefan@gnosis.pm>\ninterface IGnosisSafeProxyFactory {\n    /// @dev Allows to create new proxy contact and execute a message call to the new proxy within one transaction.\n    /// @param _mastercopy Address of master copy.\n    /// @param initializer Payload for message call sent to new proxy contract.\n    /// @param saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy\n    ///        contract.\n    function createProxyWithNonce(\n        address _mastercopy,\n        bytes memory initializer,\n        uint256 saltNonce\n    ) external returns (address proxy);\n\n    /// @dev Allows to create new proxy contact, execute a message call to the new proxy and call a specified callback\n    ///      within one transaction\n    /// @param _mastercopy Address of master copy.\n    /// @param initializer Payload for message call sent to new proxy contract.\n    /// @param saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy\n    ///        contract.\n    /// @param callback Callback that will be invoced after the new proxy contract has been successfully deployed and\n    ///        initialized.\n    function createProxyWithCallback(\n        address _mastercopy,\n        bytes memory initializer,\n        uint256 saltNonce,\n        IProxyCreationCallback callback\n    ) external returns (address proxy);\n\n    /// @dev Allows to get the address for a new proxy contact created via `createProxyWithNonce`\n    ///      This method is only meant for address calculation purpose when you use an initializer that would revert,\n    ///      therefore the response is returned with a revert. When calling this method set `from` to the address of\n    ///      the proxy factory.\n    /// @param _mastercopy Address of master copy.\n    /// @param initializer Payload for message call sent to new proxy contract.\n    /// @param saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy\n    ///        contract.\n    function calculateCreateProxyWithNonceAddress(\n        address _mastercopy,\n        bytes calldata initializer,\n        uint256 saltNonce\n    ) external returns (address proxy);\n\n    /// @dev Allows to create new proxy contact and execute a message call to the new proxy within one transaction.\n    /// @param masterCopy Address of master copy.\n    /// @param data Payload for message call sent to new proxy contract.\n    function createProxy(address masterCopy, bytes memory data) external returns (address proxy);\n\n    /// @dev Allows to retrieve the runtime code of a deployed Proxy. This can be used to check that the expected Proxy\n    ///      was deployed.\n    function proxyRuntimeCode() external pure returns (bytes memory);\n\n    /// @dev Allows to retrieve the creation code used for the Proxy deployment. With this it is easily possible to\n    ///      calculate predicted address.\n    function proxyCreationCode() external pure returns (bytes memory);\n}\n\ninterface IProxyCreationCallback {\n    function proxyCreated(\n        address proxy,\n        address _mastercopy,\n        bytes calldata initializer,\n        uint256 saltNonce\n    ) external;\n}\n"
+      }
+    },
+    "settings": {
+      "evmVersion": "istanbul",
+      "optimizer": {
+        "enabled": true,
+        "runs": 50000,
+        "details": {
+          "yul": false,
+          "deduplicate": true,
+          "cse": true,
+          "constantOptimizer": true
+        }
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "devdoc",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.sourceMap",
+            "evm.gasEstimates",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/gnosis/IGnosisSafeProxyFactory.sol": {
+        "IGnosisSafeProxyFactory": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_mastercopy",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initializer",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saltNonce",
+                  "type": "uint256"
+                }
+              ],
+              "name": "calculateCreateProxyWithNonceAddress",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "proxy",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "masterCopy",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "data",
+                  "type": "bytes"
+                }
+              ],
+              "name": "createProxy",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "proxy",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_mastercopy",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initializer",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saltNonce",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "contract IProxyCreationCallback",
+                  "name": "callback",
+                  "type": "address"
+                }
+              ],
+              "name": "createProxyWithCallback",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "proxy",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_mastercopy",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initializer",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saltNonce",
+                  "type": "uint256"
+                }
+              ],
+              "name": "createProxyWithNonce",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "proxy",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "proxyCreationCode",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "proxyRuntimeCode",
+              "outputs": [
+                {
+                  "internalType": "bytes",
+                  "name": "",
+                  "type": "bytes"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ],
+          "devdoc": {
+            "author": "Stefan George - <stefan@gnosis.pm>",
+            "kind": "dev",
+            "methods": {
+              "calculateCreateProxyWithNonceAddress(address,bytes,uint256)": {
+                "details": "Allows to get the address for a new proxy contact created via `createProxyWithNonce`      This method is only meant for address calculation purpose when you use an initializer that would revert,      therefore the response is returned with a revert. When calling this method set `from` to the address of      the proxy factory.",
+                "params": {
+                  "_mastercopy": "Address of master copy.",
+                  "initializer": "Payload for message call sent to new proxy contract.",
+                  "saltNonce": "Nonce that will be used to generate the salt to calculate the address of the new proxy        contract."
+                }
+              },
+              "createProxy(address,bytes)": {
+                "details": "Allows to create new proxy contact and execute a message call to the new proxy within one transaction.",
+                "params": {
+                  "data": "Payload for message call sent to new proxy contract.",
+                  "masterCopy": "Address of master copy."
+                }
+              },
+              "createProxyWithCallback(address,bytes,uint256,address)": {
+                "details": "Allows to create new proxy contact, execute a message call to the new proxy and call a specified callback      within one transaction",
+                "params": {
+                  "_mastercopy": "Address of master copy.",
+                  "callback": "Callback that will be invoced after the new proxy contract has been successfully deployed and        initialized.",
+                  "initializer": "Payload for message call sent to new proxy contract.",
+                  "saltNonce": "Nonce that will be used to generate the salt to calculate the address of the new proxy        contract."
+                }
+              },
+              "createProxyWithNonce(address,bytes,uint256)": {
+                "details": "Allows to create new proxy contact and execute a message call to the new proxy within one transaction.",
+                "params": {
+                  "_mastercopy": "Address of master copy.",
+                  "initializer": "Payload for message call sent to new proxy contract.",
+                  "saltNonce": "Nonce that will be used to generate the salt to calculate the address of the new proxy        contract."
+                }
+              },
+              "proxyCreationCode()": {
+                "details": "Allows to retrieve the creation code used for the Proxy deployment. With this it is easily possible to      calculate predicted address."
+              },
+              "proxyRuntimeCode()": {
+                "details": "Allows to retrieve the runtime code of a deployed Proxy. This can be used to check that the expected Proxy      was deployed."
+              }
+            },
+            "title": "Proxy Factory - Allows to create new proxy contact and execute a message call to the new proxy within one        transaction.",
+            "version": 1
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "gasEstimates": null,
+            "methodIdentifiers": {
+              "calculateCreateProxyWithNonceAddress(address,bytes,uint256)": "2500510e",
+              "createProxy(address,bytes)": "61b69abd",
+              "createProxyWithCallback(address,bytes,uint256,address)": "d18af54d",
+              "createProxyWithNonce(address,bytes,uint256)": "1688f0b9",
+              "proxyCreationCode()": "53e5d935",
+              "proxyRuntimeCode()": "addacc0f"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_mastercopy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"initializer\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"saltNonce\",\"type\":\"uint256\"}],\"name\":\"calculateCreateProxyWithNonceAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"masterCopy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"createProxy\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_mastercopy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"initializer\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"saltNonce\",\"type\":\"uint256\"},{\"internalType\":\"contract IProxyCreationCallback\",\"name\":\"callback\",\"type\":\"address\"}],\"name\":\"createProxyWithCallback\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_mastercopy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"initializer\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"saltNonce\",\"type\":\"uint256\"}],\"name\":\"createProxyWithNonce\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxyCreationCode\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxyRuntimeCode\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Stefan George - <stefan@gnosis.pm>\",\"kind\":\"dev\",\"methods\":{\"calculateCreateProxyWithNonceAddress(address,bytes,uint256)\":{\"details\":\"Allows to get the address for a new proxy contact created via `createProxyWithNonce`      This method is only meant for address calculation purpose when you use an initializer that would revert,      therefore the response is returned with a revert. When calling this method set `from` to the address of      the proxy factory.\",\"params\":{\"_mastercopy\":\"Address of master copy.\",\"initializer\":\"Payload for message call sent to new proxy contract.\",\"saltNonce\":\"Nonce that will be used to generate the salt to calculate the address of the new proxy        contract.\"}},\"createProxy(address,bytes)\":{\"details\":\"Allows to create new proxy contact and execute a message call to the new proxy within one transaction.\",\"params\":{\"data\":\"Payload for message call sent to new proxy contract.\",\"masterCopy\":\"Address of master copy.\"}},\"createProxyWithCallback(address,bytes,uint256,address)\":{\"details\":\"Allows to create new proxy contact, execute a message call to the new proxy and call a specified callback      within one transaction\",\"params\":{\"_mastercopy\":\"Address of master copy.\",\"callback\":\"Callback that will be invoced after the new proxy contract has been successfully deployed and        initialized.\",\"initializer\":\"Payload for message call sent to new proxy contract.\",\"saltNonce\":\"Nonce that will be used to generate the salt to calculate the address of the new proxy        contract.\"}},\"createProxyWithNonce(address,bytes,uint256)\":{\"details\":\"Allows to create new proxy contact and execute a message call to the new proxy within one transaction.\",\"params\":{\"_mastercopy\":\"Address of master copy.\",\"initializer\":\"Payload for message call sent to new proxy contract.\",\"saltNonce\":\"Nonce that will be used to generate the salt to calculate the address of the new proxy        contract.\"}},\"proxyCreationCode()\":{\"details\":\"Allows to retrieve the creation code used for the Proxy deployment. With this it is easily possible to      calculate predicted address.\"},\"proxyRuntimeCode()\":{\"details\":\"Allows to retrieve the runtime code of a deployed Proxy. This can be used to check that the expected Proxy      was deployed.\"}},\"title\":\"Proxy Factory - Allows to create new proxy contact and execute a message call to the new proxy within one        transaction.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/gnosis/IGnosisSafeProxyFactory.sol\":\"IGnosisSafeProxyFactory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":50000},\"remappings\":[]},\"sources\":{\"contracts/gnosis/IGnosisSafeProxyFactory.sol\":{\"keccak256\":\"0x8ab4e7462e1014da99b05b7438eb488816728dacb3e54a76c58cd39a987578a4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9ca987582d5d66839e53daf5390cf4cbb1f753430492615cd60d62c9464c6de8\",\"dweb:/ipfs/QmbCv8rAoJfHdstqbWzdgaa8Ho4XzYkGsQexgJsLyyhJoG\"]}},\"version\":1}"
+        },
+        "IProxyCreationCallback": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "proxy",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_mastercopy",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initializer",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "saltNonce",
+                  "type": "uint256"
+                }
+              ],
+              "name": "proxyCreated",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "devdoc": {
+            "kind": "dev",
+            "methods": {},
+            "version": 1
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "gasEstimates": null,
+            "methodIdentifiers": {
+              "proxyCreated(address,address,bytes,uint256)": "1e52b518"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_mastercopy\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"initializer\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"saltNonce\",\"type\":\"uint256\"}],\"name\":\"proxyCreated\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/gnosis/IGnosisSafeProxyFactory.sol\":\"IProxyCreationCallback\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":50000},\"remappings\":[]},\"sources\":{\"contracts/gnosis/IGnosisSafeProxyFactory.sol\":{\"keccak256\":\"0x8ab4e7462e1014da99b05b7438eb488816728dacb3e54a76c58cd39a987578a4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9ca987582d5d66839e53daf5390cf4cbb1f753430492615cd60d62c9464c6de8\",\"dweb:/ipfs/QmbCv8rAoJfHdstqbWzdgaa8Ho4XzYkGsQexgJsLyyhJoG\"]}},\"version\":1}"
+        }
+      }
+    },
+    "sources": {
+      "contracts/gnosis/IGnosisSafeProxyFactory.sol": {
+        "ast": {
+          "absolutePath": "contracts/gnosis/IGnosisSafeProxyFactory.sol",
+          "exportedSymbols": {
+            "IGnosisSafeProxyFactory": [
+              63
+            ],
+            "IProxyCreationCallback": [
+              75
+            ]
+          },
+          "id": 76,
+          "license": "MIT",
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "0.6",
+                ".12"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "32:23:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "documentation": {
+                "id": 2,
+                "nodeType": "StructuredDocumentation",
+                "src": "57:188:0",
+                "text": "@title Proxy Factory - Allows to create new proxy contact and execute a message call to the new proxy within one\n        transaction.\n @author Stefan George - <stefan@gnosis.pm>"
+              },
+              "fullyImplemented": false,
+              "id": 63,
+              "linearizedBaseContracts": [
+                63
+              ],
+              "name": "IGnosisSafeProxyFactory",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "body": null,
+                  "documentation": {
+                    "id": 3,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "285:379:0",
+                    "text": "@dev Allows to create new proxy contact and execute a message call to the new proxy within one transaction.\n @param _mastercopy Address of master copy.\n @param initializer Payload for message call sent to new proxy contract.\n @param saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy\n        contract."
+                  },
+                  "functionSelector": "1688f0b9",
+                  "id": 14,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "createProxyWithNonce",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 10,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 5,
+                        "mutability": "mutable",
+                        "name": "_mastercopy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 14,
+                        "src": "708:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 4,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "708:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 7,
+                        "mutability": "mutable",
+                        "name": "initializer",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 14,
+                        "src": "737:24:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 6,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "737:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 9,
+                        "mutability": "mutable",
+                        "name": "saltNonce",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 14,
+                        "src": "771:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 8,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "771:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "698:96:0"
+                  },
+                  "returnParameters": {
+                    "id": 13,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 12,
+                        "mutability": "mutable",
+                        "name": "proxy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 14,
+                        "src": "813:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 11,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "813:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "812:15:0"
+                  },
+                  "scope": 63,
+                  "src": "669:159:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "body": null,
+                  "documentation": {
+                    "id": 15,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "834:564:0",
+                    "text": "@dev Allows to create new proxy contact, execute a message call to the new proxy and call a specified callback\n      within one transaction\n @param _mastercopy Address of master copy.\n @param initializer Payload for message call sent to new proxy contract.\n @param saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy\n        contract.\n @param callback Callback that will be invoced after the new proxy contract has been successfully deployed and\n        initialized."
+                  },
+                  "functionSelector": "d18af54d",
+                  "id": 28,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "createProxyWithCallback",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 24,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 17,
+                        "mutability": "mutable",
+                        "name": "_mastercopy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 28,
+                        "src": "1445:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 16,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1445:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 19,
+                        "mutability": "mutable",
+                        "name": "initializer",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 28,
+                        "src": "1474:24:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 18,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1474:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 21,
+                        "mutability": "mutable",
+                        "name": "saltNonce",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 28,
+                        "src": "1508:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 20,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1508:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 23,
+                        "mutability": "mutable",
+                        "name": "callback",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 28,
+                        "src": "1535:31:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IProxyCreationCallback_$75",
+                          "typeString": "contract IProxyCreationCallback"
+                        },
+                        "typeName": {
+                          "contractScope": null,
+                          "id": 22,
+                          "name": "IProxyCreationCallback",
+                          "nodeType": "UserDefinedTypeName",
+                          "referencedDeclaration": 75,
+                          "src": "1535:22:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_IProxyCreationCallback_$75",
+                            "typeString": "contract IProxyCreationCallback"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1435:137:0"
+                  },
+                  "returnParameters": {
+                    "id": 27,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 26,
+                        "mutability": "mutable",
+                        "name": "proxy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 28,
+                        "src": "1591:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 25,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1591:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "1590:15:0"
+                  },
+                  "scope": 63,
+                  "src": "1403:203:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "body": null,
+                  "documentation": {
+                    "id": 29,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "1612:628:0",
+                    "text": "@dev Allows to get the address for a new proxy contact created via `createProxyWithNonce`\n      This method is only meant for address calculation purpose when you use an initializer that would revert,\n      therefore the response is returned with a revert. When calling this method set `from` to the address of\n      the proxy factory.\n @param _mastercopy Address of master copy.\n @param initializer Payload for message call sent to new proxy contract.\n @param saltNonce Nonce that will be used to generate the salt to calculate the address of the new proxy\n        contract."
+                  },
+                  "functionSelector": "2500510e",
+                  "id": 40,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "calculateCreateProxyWithNonceAddress",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 36,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 31,
+                        "mutability": "mutable",
+                        "name": "_mastercopy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 40,
+                        "src": "2300:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 30,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2300:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 33,
+                        "mutability": "mutable",
+                        "name": "initializer",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 40,
+                        "src": "2329:26:0",
+                        "stateVariable": false,
+                        "storageLocation": "calldata",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 32,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2329:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 35,
+                        "mutability": "mutable",
+                        "name": "saltNonce",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 40,
+                        "src": "2365:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 34,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2365:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2290:98:0"
+                  },
+                  "returnParameters": {
+                    "id": 39,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 38,
+                        "mutability": "mutable",
+                        "name": "proxy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 40,
+                        "src": "2407:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 37,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2407:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2406:15:0"
+                  },
+                  "scope": 63,
+                  "src": "2245:177:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "body": null,
+                  "documentation": {
+                    "id": 41,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2428:234:0",
+                    "text": "@dev Allows to create new proxy contact and execute a message call to the new proxy within one transaction.\n @param masterCopy Address of master copy.\n @param data Payload for message call sent to new proxy contract."
+                  },
+                  "functionSelector": "61b69abd",
+                  "id": 50,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "createProxy",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 46,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 43,
+                        "mutability": "mutable",
+                        "name": "masterCopy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 50,
+                        "src": "2688:18:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 42,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2688:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 45,
+                        "mutability": "mutable",
+                        "name": "data",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 50,
+                        "src": "2708:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 44,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2708:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2687:39:0"
+                  },
+                  "returnParameters": {
+                    "id": 49,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 48,
+                        "mutability": "mutable",
+                        "name": "proxy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 50,
+                        "src": "2745:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 47,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2745:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2744:15:0"
+                  },
+                  "scope": 63,
+                  "src": "2667:93:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "body": null,
+                  "documentation": {
+                    "id": 51,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2766:142:0",
+                    "text": "@dev Allows to retrieve the runtime code of a deployed Proxy. This can be used to check that the expected Proxy\n      was deployed."
+                  },
+                  "functionSelector": "addacc0f",
+                  "id": 56,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "proxyRuntimeCode",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 52,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "2938:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 55,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 54,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 56,
+                        "src": "2964:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 53,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "2964:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "2963:14:0"
+                  },
+                  "scope": 63,
+                  "src": "2913:65:0",
+                  "stateMutability": "pure",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "body": null,
+                  "documentation": {
+                    "id": 57,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "2984:153:0",
+                    "text": "@dev Allows to retrieve the creation code used for the Proxy deployment. With this it is easily possible to\n      calculate predicted address."
+                  },
+                  "functionSelector": "53e5d935",
+                  "id": 62,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "proxyCreationCode",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 58,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "3168:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 61,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 60,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 62,
+                        "src": "3194:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 59,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3194:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3193:14:0"
+                  },
+                  "scope": 63,
+                  "src": "3142:66:0",
+                  "stateMutability": "pure",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 76,
+              "src": "245:2965:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "documentation": null,
+              "fullyImplemented": false,
+              "id": 75,
+              "linearizedBaseContracts": [
+                75
+              ],
+              "name": "IProxyCreationCallback",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "body": null,
+                  "documentation": null,
+                  "functionSelector": "1e52b518",
+                  "id": 74,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "proxyCreated",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 72,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 65,
+                        "mutability": "mutable",
+                        "name": "proxy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 74,
+                        "src": "3282:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 64,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3282:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 67,
+                        "mutability": "mutable",
+                        "name": "_mastercopy",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 74,
+                        "src": "3305:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 66,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3305:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 69,
+                        "mutability": "mutable",
+                        "name": "initializer",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 74,
+                        "src": "3334:26:0",
+                        "stateVariable": false,
+                        "storageLocation": "calldata",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 68,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3334:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 71,
+                        "mutability": "mutable",
+                        "name": "saltNonce",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 74,
+                        "src": "3370:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 70,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "3370:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "3272:121:0"
+                  },
+                  "returnParameters": {
+                    "id": 73,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "3402:0:0"
+                  },
+                  "scope": 75,
+                  "src": "3251:152:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 76,
+              "src": "3212:193:0"
+            }
+          ],
+          "src": "32:3374:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

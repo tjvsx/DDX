@@ -1,0 +1,451 @@
+{
+  "id": "8792e30fbd1455c2fab073f7e3935563",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.6.12",
+  "solcLongVersion": "0.6.12+commit.27d51765",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/gnosis/ICreateCall.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.6.12;\n\n/// @title Create Call - Allows to use the different create opcodes to deploy a contract\n/// @author Richard Meissner - <richard@gnosis.io>\ninterface ICreateCall {\n    function performCreate2(\n        uint256 value,\n        bytes memory deploymentData,\n        bytes32 salt\n    ) external returns (address newContract);\n\n    function performCreate(uint256 value, bytes memory deploymentData) external returns (address newContract);\n}\n"
+      }
+    },
+    "settings": {
+      "evmVersion": "istanbul",
+      "optimizer": {
+        "enabled": true,
+        "runs": 50000,
+        "details": {
+          "yul": false,
+          "deduplicate": true,
+          "cse": true,
+          "constantOptimizer": true
+        }
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "devdoc",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.sourceMap",
+            "evm.gasEstimates",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/gnosis/ICreateCall.sol": {
+        "ICreateCall": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "deploymentData",
+                  "type": "bytes"
+                }
+              ],
+              "name": "performCreate",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "newContract",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "deploymentData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "salt",
+                  "type": "bytes32"
+                }
+              ],
+              "name": "performCreate2",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "newContract",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "devdoc": {
+            "author": "Richard Meissner - <richard@gnosis.io>",
+            "kind": "dev",
+            "methods": {},
+            "title": "Create Call - Allows to use the different create opcodes to deploy a contract",
+            "version": 1
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "gasEstimates": null,
+            "methodIdentifiers": {
+              "performCreate(uint256,bytes)": "4c8c9ea1",
+              "performCreate2(uint256,bytes,bytes32)": "4847be6f"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"deploymentData\",\"type\":\"bytes\"}],\"name\":\"performCreate\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"newContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"deploymentData\",\"type\":\"bytes\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"performCreate2\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"newContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Richard Meissner - <richard@gnosis.io>\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Create Call - Allows to use the different create opcodes to deploy a contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/gnosis/ICreateCall.sol\":\"ICreateCall\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":50000},\"remappings\":[]},\"sources\":{\"contracts/gnosis/ICreateCall.sol\":{\"keccak256\":\"0x6d02164d28d867118ec547d1ac8e595fc4cf2e164c86e21b4a3d7c9be96b4b11\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ea184196785f052a2bb25be67f1dc64f3de52ba8580fadfcc7ca11a5edd5e2bd\",\"dweb:/ipfs/QmcK7PwPb4EqMKo9y7pAgFY7HF5L2ddGD1VHm2NQUJDQAq\"]}},\"version\":1}"
+        }
+      }
+    },
+    "sources": {
+      "contracts/gnosis/ICreateCall.sol": {
+        "ast": {
+          "absolutePath": "contracts/gnosis/ICreateCall.sol",
+          "exportedSymbols": {
+            "ICreateCall": [
+              23
+            ]
+          },
+          "id": 24,
+          "license": "MIT",
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "0.6",
+                ".12"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "32:23:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "documentation": {
+                "id": 2,
+                "nodeType": "StructuredDocumentation",
+                "src": "57:140:0",
+                "text": "@title Create Call - Allows to use the different create opcodes to deploy a contract\n @author Richard Meissner - <richard@gnosis.io>"
+              },
+              "fullyImplemented": false,
+              "id": 23,
+              "linearizedBaseContracts": [
+                23
+              ],
+              "name": "ICreateCall",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "body": null,
+                  "documentation": null,
+                  "functionSelector": "4847be6f",
+                  "id": 13,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "performCreate2",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 9,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 4,
+                        "mutability": "mutable",
+                        "name": "value",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 13,
+                        "src": "258:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 3,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "258:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 6,
+                        "mutability": "mutable",
+                        "name": "deploymentData",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 13,
+                        "src": "281:27:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 5,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "281:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 8,
+                        "mutability": "mutable",
+                        "name": "salt",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 13,
+                        "src": "318:12:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 7,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "318:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "248:88:0"
+                  },
+                  "returnParameters": {
+                    "id": 12,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 11,
+                        "mutability": "mutable",
+                        "name": "newContract",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 13,
+                        "src": "355:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 10,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "355:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "354:21:0"
+                  },
+                  "scope": 23,
+                  "src": "225:151:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                },
+                {
+                  "body": null,
+                  "documentation": null,
+                  "functionSelector": "4c8c9ea1",
+                  "id": 22,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "performCreate",
+                  "nodeType": "FunctionDefinition",
+                  "overrides": null,
+                  "parameters": {
+                    "id": 18,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 15,
+                        "mutability": "mutable",
+                        "name": "value",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 22,
+                        "src": "405:13:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 14,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "405:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      },
+                      {
+                        "constant": false,
+                        "id": 17,
+                        "mutability": "mutable",
+                        "name": "deploymentData",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 22,
+                        "src": "420:27:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes"
+                        },
+                        "typeName": {
+                          "id": 16,
+                          "name": "bytes",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "420:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_storage_ptr",
+                            "typeString": "bytes"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "404:44:0"
+                  },
+                  "returnParameters": {
+                    "id": 21,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 20,
+                        "mutability": "mutable",
+                        "name": "newContract",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 22,
+                        "src": "467:19:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 19,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "467:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "466:21:0"
+                  },
+                  "scope": 23,
+                  "src": "382:106:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 24,
+              "src": "197:293:0"
+            }
+          ],
+          "src": "32:459:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}
